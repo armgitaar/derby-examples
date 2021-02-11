@@ -2,7 +2,7 @@ require('coffeescript/register');
 
 //Docker related configuration, can disregard if not using Docker
 if (process.env.MONGO_PORT_27017_TCP_ADDR) {
-  process.env.MONGO_HOST = process.env.MONGO_PORT_27017_TCP_ADDR;
+  process.env.MONGO_HOST = 'db';
 }
 if (process.env.MONGO_PORT_27017_TCP_PORT) {
   process.env.MONGO_PORT = process.env.MONGO_PORT_27017_TCP_PORT;
