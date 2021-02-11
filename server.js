@@ -2,7 +2,7 @@ require('coffeescript/register');
 
 //Docker related configuration, can disregard if not using Docker
 if (process.env.MONGO_PORT_27017_TCP_ADDR) {
-  process.env.MONGO_HOST = 'db';
+  process.env.MONGO_HOST = process.env.MONGO_PORT_27017_TCP_ADDR;
 }
 if (process.env.MONGO_PORT_27017_TCP_PORT) {
   process.env.MONGO_PORT = process.env.MONGO_PORT_27017_TCP_PORT;
@@ -12,6 +12,7 @@ if (process.env.REDIS_PORT_6379_TCP_ADDR != void 0 && process.env.REDIS_PORT_637
   process.env.REDIS_PORT = process.env.REDIS_PORT_6379_TCP_PORT;
 }
 process.env.NODE_ENV = "production";
+process.env.MONGO_HOST = "db";
 
 require('./charts/server');
 require('./chat/server');
